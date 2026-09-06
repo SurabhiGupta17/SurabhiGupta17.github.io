@@ -330,6 +330,8 @@ footer.site-footer {
 }
 
 .comments-toggle {
+  display: block;
+  margin: 40px auto 0;
   font-family: var(--font);
   font-size: 13.5px;
   font-weight: 500;
