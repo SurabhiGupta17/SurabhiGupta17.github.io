@@ -1,0 +1,182 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+interface Props {
+  handle: string;
+  tweets: { day: number; id: string }[];
+}
+
+interface TweetMedia {
+  type: string;
+  image: string;
+  videoSrc?: string;
+}
+
+interface TweetData {
+  text: string;
+  name: string;
+  screen_name: string;
+  avatar: string;
+  media: TweetMedia[];
+}
+
+const { handle, tweets } = Astro.props;
+
+const cachePath = path.resolve("./.tweet-cache.json");
+let cache: Record<string, TweetData | null> = {};
+if (fs.existsSync(cachePath)) {
+  try {
+    cache = JSON.parse(fs.readFileSync(cachePath, "utf-8"));
+  } catch {
+    cache = {};
+  }
+}
+
+function getToken(id: string) {
+  return ((Number(id) / 1e15) * Math.PI).toString(36).replace(/(0+|\.)/g, "");
+}
+
+function bestMp4(variants: any[] = []): string | undefined {
+  return variants
+    .filter((v) => v.content_type === "video/mp4")
+    .sort((a, b) => (b.bitrate ?? 0) - (a.bitrate ?? 0))[0]?.url;
+}
+
+async function fetchTweet(id: string): Promise<TweetData | null> {
+  if (id in cache) return cache[id];
+  try {
+    const token = getToken(id);
+    const res = await fetch(
+      `https://cdn.syndication.twimg.com/tweet-result?id=${id}&token=${token}`
+    );
+    if (!res.ok) {
+      cache[id] = null;
+      return null;
+    }
+    const data = await res.json();
+    const range = data.display_text_range;
+    const text = Array.isArray(range) ? data.text.slice(range[0], range[1]) : (data.text ?? "");
+    const simplified: TweetData = {
+      text,
+      name: data.user?.name ?? handle,
+      screen_name: data.user?.screen_name ?? handle,
+      avatar: data.user?.profile_image_url_https ?? "",
+      media: (data.mediaDetails ?? []).map((m: any) => ({
+        type: m.type,
+        image: m.media_url_https,
+        videoSrc: m.type !== "photo" ? bestMp4(m.video_info?.variants) : undefined,
+      })),
+    };
+    cache[id] = simplified;
+    return simplified;
+  } catch {
+    cache[id] = null;
+    return null;
+  }
+}
+
+const tweetData = await Promise.all(
+  tweets.map(async (t) => ({ ...t, data: await fetchTweet(t.id) }))
+);
+
+let diskCache: Record<string, TweetData | null> = {};
+if (fs.existsSync(cachePath)) {
+  try {
+    diskCache = JSON.parse(fs.readFileSync(cachePath, "utf-8"));
+  } catch {
+    diskCache = {};
+  }
+}
+fs.writeFileSync(cachePath, JSON.stringify({ ...diskCache, ...cache }, null, 2));
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function linkify(text: string): string {
+  const escaped = escapeHtml(text);
+  const pattern = /(https?:\/\/\S+)|(^|[^\w@])@(\w+)|(^|[^\w&])#(\w+)/g;
+  const out = escaped.replace(
+    pattern,
+    (match, url, mentionPre, mentionUser, hashPre, hashTag) => {
+      if (url) {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="static-tweet-link">${url}</a>`;
+      }
+      if (mentionUser) {
+        return `${mentionPre}<a href="https://twitter.com/${mentionUser}" target="_blank" rel="noopener noreferrer" class="static-tweet-link">@${mentionUser}</a>`;
+      }
+      if (hashTag) {
+        return `${hashPre}<a href="https://twitter.com/hashtag/${hashTag}" target="_blank" rel="noopener noreferrer" class="static-tweet-link">#${hashTag}</a>`;
+      }
+      return match;
+    }
+  );
+  return out.replace(/\n/g, "<br />");
+}
+---
+
+<div class="tweet-scroll-wrap">
+  {tweetData.length > 0 ? (
+    <div class="tweet-scroll">
+      <div class="tweet-scroll-grid">
+        {tweetData.map(({ day, id, data }) => (
+          <div>
+            <div class="tweet-scroll-day">DAY {day}</div>
+            {data ? (
+              <div class="static-tweet">
+                <a
+                  class="static-tweet-header"
+                  href={`https://twitter.com/${handle}/status/${id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {data.avatar && <img class="static-tweet-avatar" src={data.avatar} alt="" />}
+                  <div>
+                    <div class="static-tweet-name">{data.name}</div>
+                    <div class="static-tweet-handle">@{data.screen_name}</div>
+                  </div>
+                </a>
+                <p class="static-tweet-text" set:html={linkify(data.text)} />
+                {data.media[0] && (
+                  data.media[0].videoSrc ? (
+                    <video
+                      class="static-tweet-media"
+                      poster={data.media[0].image}
+                      controls
+                      loop
+                      playsinline
+                      preload="none"
+                    >
+                      <source src={data.media[0].videoSrc} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <a href={`https://twitter.com/${handle}/status/${id}`} target="_blank" rel="noopener noreferrer">
+                      <img class="static-tweet-media" src={data.media[0].image} alt="" loading="lazy" />
+                    </a>
+                  )
+                )}
+              </div>
+            ) : (
+              <a
+                class="static-tweet static-tweet-fallback"
+                href={`https://twitter.com/${handle}/status/${id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View tweet →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  ) : (
+    <div class="tweet-scroll">
+      <div class="tweet-scroll-empty">Tweet thread not linked yet.</div>
+    </div>
+  )}
+</div>

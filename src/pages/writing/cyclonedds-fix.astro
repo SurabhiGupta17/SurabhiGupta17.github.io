@@ -1,0 +1,160 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const sections = [
+  { id: "what-was-broken", label: "What was broken?" },
+  { id: "how-i-found-out", label: "How I found out it was IP fragmentation" },
+  { id: "what-is-ip-fragmentation", label: "What even is IP fragmentation and why does it happen here?" },
+  { id: "what-i-changed", label: "What I changed and how each piece addresses the problem" },
+  { id: "how-do-we-know", label: "How do we know it worked?" },
+  { id: "links-referenced", label: "Links referenced" },
+];
+---
+
+<Base
+  title="Tuning CycloneDDS to fix LiDAR data delivery problems · Surabhi Gupta"
+  description="Root-causing a cross-machine LiDAR/IMU data delivery failure to IP fragmentation, and fixing it via CycloneDDS config tuning."
+>
+  <div class="col writeup-header">
+    <h1 style="font-size: clamp(1.9rem, 4vw, 2.6rem);">
+      Tuning CycloneDDS to fix LiDAR data delivery problems
+    </h1>
+    <p class="writeup-byline">
+      Surabhi Gupta &middot; September 5, 2026
+    </p>
+  </div>
+
+  <div class="writeup-shell">
+    <nav class="writeup-toc" aria-label="Sections">
+      <div class="writeup-toc-title">On this page</div>
+      {sections.map((s) => (
+        <a href={`#${s.id}`} data-toc-link={s.id}>{s.label}</a>
+      ))}
+    </nav>
+
+    <div class="writeup-layout">
+    <article class="writeup-article">
+      <section id="what-was-broken">
+        <h2>What was broken?</h2>
+        <p>Our robot is equipped with a 3D LiDAR + stereo cameras. This sensor data was not able to cross from one machine to the other.</p>
+        <p>Our setup had two machines connected by an ethernet cable. The bandwidth afforded by the cable was 1GbE. We had two machines to distribute the compute load. Sensors were on machine 0 and sensor-related stuff was set up to run on machine 0, while other services ran on machine 1. ROS2 was set up across everything. Cross-machine transmission of data presented certain problems.</p>
+
+        <figure class="writeup-diagram">
+          <img src="/images/setup-diagram.png" alt="Machine 0, with a LiDAR and cameras attached, connected to Machine 1 over an ethernet cable" />
+        </figure>
+        <p>To be specific, data from most topics was able to cross the ethernet link to the next machine. It was the sensor data which suffered. For the LiDAR, the two topics (PointCloud + IMU) had different issues.</p>
+        <p>The message size for IMU data was relatively small but it needed to be published at a high frequency of around 200 Hz for real-time autonomy algorithms. However, IMU data was being received at a much lower frequency (~80 Hz) on machine 1 from machine 0 despite being published at 200 Hz.</p>
+        <p>As for the PointCloud topic, the message size was rather large and despite being published at 10 Hz on machine 0, it was barely being received on the other machine.</p>
+        <p>Mind you, the problem wasn’t there on machine 0 itself. Subscribers on machine 0 received complete IMU data at 200 Hz and PointCloud data at 10 Hz.</p>
+        <p>Similarly, with the stereo cameras, the vision data was hardly being received on machine 1 but worked fine on machine 0.</p>
+        <p>To be honest, this was a long standing problem with our setup to the extent that we had moved all services which required sensor data to machine 0 since that data wouldn’t cross the link to machine 1 reliably. This wasn’t an ideal solution considering machine 0 was loaded with compute-heavy services.</p>
+        <p>There had been some unfruitful attempts at solving this. When I was initially handed this problem, I had tried searching through issues in the LiDAR driver source code. I wasted a lot of time trying to find the problem in the driver source code.</p>
+        <p>A senior engineer suggested it might be an issue in the middleware layer rather than the driver source code which is why I ended up looking deeper into our CycloneDDS setup.</p>
+      </section>
+
+      <section id="how-i-found-out">
+        <h2>How I found out it was IP fragmentation</h2>
+        <p>Since the topics with the heaviest payloads (sensor data) were unable to cross the two-machine ethernet link, it was a reasonable starting point to check the bandwidth of the link, in case it was getting saturated with the amount of data passing through.</p>
+        <p>I used the ethtool and the bandwidth available was 1000 Mbps. The required bandwidth for all the data to flow through came to be around 250 Mbps. I did this by measuring the bandwidth of individual topics and adding it up.</p>
+        <p>Given that the required bandwidth was certainly well within the 1000 Mbps limit, I ruled out link saturation due to excessive data flow. The data should have been passing through without issues.</p>
+        <p>Looking for ways to diagnose this issue led me to ddsperf sanity - it’s a performance/testing tool developed by Eclipse Cyclone DDS. The ddsperf sanity command runs a cross-machine DDS test which is independent of ROS.</p>
+        <p>If it works, but ros2 topic hz doesn’t, then the problem is probably not at the RMW layer. If it fails however, that is a pretty good sign there is a network/config/middleware problem.</p>
+        <p>Running ddsperf sanity showed that the latency for data flow was unusually high. For a healthy DDS setup, you would expect round trip time for a small 12-byte ping (which is what ddsperf sanity uses) between 2 machines to be around a few hundred microseconds. However the actual RTT was in the range of 3 to 12 milliseconds. This definitely pointed to something related to the middleware/network.</p>
+        <p>Further reading on DDS issues led me to this paper : Optimizing ROS 2 Communication for Wireless Robotic Systems. It details 3 key issues for large payload transmissions via DDS : excessive IP fragmentation, inefficient retransmission timing, and congestive buffer bursts.</p>
+        <p>(Although it talks specifically about wireless systems, I found it useful in understanding how DDS works). This paper notes that latency in data transmission when payloads cross a certain threshold via DDS is a common phenomenon, even over wired links.</p>
+        <p>On Linux, netstat -s is a command which shows information related to traffic on the connected network interface for a device. This includes the number of packets received, transmitted and dropped, routes and their status as well as the cumulative stats per interface.</p>
+        <p>Running netstat revealed that around 273 million IP fragments were dropped after timeout, ~2.70 billion packet reassemblies was required, ~59 million of the reassemblies actually succeeded, ~272 million reassemblies failed, ~13 million fragments arrived intact with ~198 million fragments created.</p>
+        <p>All in all, ~97% of the IP fragments generated were being dropped and not transmitted. That was pretty severe.</p>
+      </section>
+
+      <section id="what-is-ip-fragmentation">
+        <h2>What even is IP fragmentation and why does it happen here?</h2>
+        <p>When some data needs to travel from one place to another over the same topic within a ROS2 system, it happens through 4 layers.</p>
+        <div class="layer-flow">
+          <span class="layer-chip">ROS2 application layer</span>
+          <span class="layer-arrow">→</span>
+          <span class="layer-chip">DDS (middleware) layer</span>
+          <span class="layer-arrow">→</span>
+          <span class="layer-chip">OS layer</span>
+          <span class="layer-arrow">→</span>
+          <span class="layer-chip">Physical link layer</span>
+        </div>
+        <p>Let’s say a LiDAR point cloud msg is 600 KB in size. This is handed to the middleware RTPS (Real Time Publish Subscribe) protocol (in our case, DDS) for transmission. It serialises the message and splits it into RTPS fragments.</p>
+        <p>This is the first level of fragmentation the message undergoes. The size of the RTPS fragment is determined by a configurable fragment size parameter. This parameter was set to 32 KB.</p>
+        <p>Thus, here, we will have ~19 RTPS fragments making up the 600 KB point cloud msg. These RTPS fragments are then picked up by the OS layer for transmission.</p>
+        <p>The Maximum Transmission Unit (MTU) is the largest data packet a link can carry in a single piece. Ethernet can carry data packets with a max size of 1500B at a time and this limit is different for interfaces.</p>
+        <p>If the RTPS fragment size is larger than the MTU, then it can’t be transported as a single data packet. So it is fragmented further at the OS level such that it fits within the MTU size. This is known as IP fragmentation.</p>
+        <p>This is the second level of fragmentation the original message goes through. Each of the 19 RTPS fragments we had is split into ~22 IP fragments (32/1.5). All in all, for one point cloud message, we end up with 418 (19 times 22) IP fragments.</p>
+
+        <figure class="writeup-diagram">
+          <img src="/images/fragmentation-diagram.png" alt="A 600 KB point cloud message fragmented twice: first into 19 RTPS fragments, then each RTPS fragment into about 22 IP fragments" />
+        </figure>
+        <p>IP fragmentation is a lot less resilient than RTPS-level fragmentation during data transfer. If even a single IP fragment gets dropped or lost in transit, then the entire chunk of IP fragments making up an RTPS fragment gets dropped.</p>
+        <p>The RTPS reliability protocol - HEARTBEATFRAG/ACKNACK notices the drop and triggers a retransmission, which causes all those dropped fragments to transfer all over again.</p>
+        <p>For payloads as large as PointCloud messages, given the sheer number of fragments created, it is very unlikely that 100% of the fragments are transferred in the first attempt. One or more packets will be lost almost certainly, which leads to dropping a bunch of fragments and then requesting retransfer of those.</p>
+        <p>This entire cascading effect is very inefficient. As the netstat data showed, 97% of the reassemblies of IP fragments don’t succeed and then unsurprisingly, hardly any data crosses the cross-machine link at all.</p>
+        <p>Unlike fragmentation at the OS level, if any fragment created at the middleware level gets lost, then only that RTPS fragment is retransmitted. The RTPS fragments are reassembled at the receiving DDS layer using sequence numbers and then the complete point cloud msg is handed to the ROS2 application layer. This reassembly has its own logic and is pretty robust.</p>
+      </section>
+
+      <section id="what-i-changed">
+        <h2>What I changed and how each piece addresses the problem</h2>
+        <p>To avoid IP fragmentation, the trick of course, is to fragment the message into a small enough size that it fits within the MTU at the first level of fragmentation itself.</p>
+        <p>We want to bypass the OS level fragmentation so we configure the RTPS fragment size to be lower than the MTU at the middleware layer itself so that there is no further need for splitting the message into parts.</p>
+        <p>Essentially, each RTPS fragment created at the DDS layer is small enough to fit within a single data packet when transferred. No IP fragmentation = no cascading retransmissions = no failed reassemblies.</p>
+        <p>I reduced the MaxMessageSize parameter in the CycloneDDS config file from 32768B to 1400B (MTU for ethernet is 1500B) to fix the IP fragmentation problem.</p>
+        <p>In my research I came across another potential factor for data transfer issues : multiple network interfaces being active. As it turns out, when multiple network interfaces are available, you can’t be sure which one CycloneDDS ends up using. This is bad for a number of reasons.</p>
+        <p>You might see inconsistent behaviour across restarts since it isn’t fixed which interface DDS will pick up. If you have Ethernet and Wi-Fi set up on the same subnet and are expecting data flow through ethernet, if DDS picks up Wi-Fi instead, transfer might be slow and lossy.</p>
+        <p>From a security perspective, data transfer through the unintended interface might expose DDS traffic on a network segment which you didn’t intend. The fix for this is to set the NetworkInterface name parameter and explicitly bind it to the intended interface, which in our case, was Ethernet.</p>
+        <p>Quite a few resources also pointed at multicast being problematic for reliable data delivery. So I ended up disabling multicast and setting explicit peer addresses with unicast to make discovery deterministic for our setup.</p>
+      </section>
+
+      <section id="how-do-we-know">
+        <h2>How do we know it worked?</h2>
+        <p>After making these changes, I ran the updated cyclonedds.xml on our two-machine setup and checked for data flow of sensor data between the two. On a first glance, all the sensor topics (LiDAR PointCloud + IMU, stereo camera streams) were being received on machine 1 at the expected rate.</p>
+        <p>I then conducted some more rigorous tests for this. This included an hour-long sustained test, data integrity checks (to ensure no partial or corrupted messages were sent) as well as recording rosbags from machine 1 when the robot was working in the field to check for sensor topic data and frequencies.</p>
+        <p>One interesting finding came out of running a subscriber load test. To the 6 sensor topics I was monitoring, I added 10 subscribers each. All these subscribers were on machine 1 (to validate cross-machine data flow).</p>
+        <p>And the problem returned. Degraded frequencies; hardly any high payload data crossing the link. This, however, was a bandwidth problem (and a known limitation of unicast).</p>
+        <p>With multicast disabled, CycloneDDS sends a unicast copy of each message to each subscriber. With the increased number of subscribers, the bandwidth requirement ended up being ~300 MB/s. This was more than double the 1GbE link limit of 125 MB/s available and accounted for the frequency degradation.</p>
+        <p>This result was important to note since this is something to be aware of as a system limitation. It is critical to ensure that the total cross-machine bandwidth requirement remains under the link limit.</p>
+        <p>The most concrete test which showed that the IP fragmentation issue had been fixed was the fragment counter. The fragment counter remained fixed throughout all the testing showing that IP fragmentation was no longer occurring.</p>
+        <p>I also ran ddsperf sanity to check improvements which the updated config brought around. It confirmed a 10-15x latency improvement from 3000 to 12000 microseconds on the original config to 130 to 800 microseconds on the new config.</p>
+      </section>
+
+      <section id="links-referenced">
+        <h2>Links referenced (and for further reading)</h2>
+        <ol>
+          <li><a href="https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html" target="_blank" rel="noopener noreferrer">ROS 2 Humble - DDS Tuning Guide</a></li>
+          <li><a href="https://arxiv.org/html/2508.11366v1" target="_blank" rel="noopener noreferrer">Optimizing ROS 2 Communication for Wireless Robotic Systems - arXiv paper</a></li>
+          <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds" target="_blank" rel="noopener noreferrer">ddsperf - CycloneDDS built-in performance tool</a></li>
+          <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/484" target="_blank" rel="noopener noreferrer">"Reduce how eager CycloneDDS is in retransmits" - cyclonedds #484</a></li>
+          <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/729" target="_blank" rel="noopener noreferrer">"Multi ECU configuration" - cyclonedds #729</a></li>
+          <li><a href="https://github.com/ros2/rmw_cyclonedds/issues/455" target="_blank" rel="noopener noreferrer">"Odd behavior with multiple interfaces" - rmw_cyclonedds #455</a></li>
+          <li><a href="https://www.robotandchisel.com/2020/08/12/cyclonedds/" target="_blank" rel="noopener noreferrer">Some Notes on Cyclone DDS - Robot & Chisel blog</a></li>
+        </ol>
+      </section>
+    </article>
+    </div>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]");
+    const sections = document.querySelectorAll<HTMLElement>(".writeup-article section[id]");
+    const byId = new Map(Array.from(links).map((l) => [l.dataset.tocLink, l]));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const link = byId.get(entry.target.id);
+          if (!link) continue;
+          if (entry.isIntersecting) {
+            links.forEach((l) => l.classList.remove("active"));
+            link.classList.add("active");
+          }
+        }
+      },
+      { rootMargin: "-20% 0px -70% 0px" }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+  </script>
+</Base>

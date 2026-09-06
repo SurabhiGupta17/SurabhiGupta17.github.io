@@ -1,0 +1,177 @@
+---
+import Base from "../layouts/Base.astro";
+import TweetScroll from "../components/TweetScroll.astro";
+import { ravenHandle, ravenTweets } from "../data/ravenTweets";
+import { droidArmHandle, droidArmTweets } from "../data/droidArmTweets";
+---
+
+<Base title="Build Log · Surabhi Gupta" description="A chronological log of robotics builds and roles.">
+  <div class="col">
+    <p class="lede" style="text-align: center;">
+      Everything I've built and worked on, most recent first.
+    </p>
+  </div>
+
+  <div class="work-grid" style="margin-top: 56px;">
+
+    <div class="work-row">
+      <div class="tile tile-lg" data-reveal>
+        <img class="tile-visual" src="/images/earthsense.jpeg" alt="EarthSense agricultural robot in a cornfield" />
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Jul 2025 – present</span>
+          </div>
+          <h3>EarthSense Inc</h3>
+          <div class="tile-role">Robotics Engineer</div>
+          <p class="tile-desc">
+            Production engineering on a distributed ROS2 robot system. Diagnosed a cross-machine
+            sensor data failure down to a 97% IP fragmentation rate, fixed it via CycloneDDS config
+            tuning (10-15x latency improvement), and ran an independent evaluation of Zenoh as an
+            alternative middleware.
+          </p>
+          <a class="tile-link" href="/writing/cyclonedds-fix/">Read the DDS writeup →</a>
+        </div>
+      </div>
+      <div class="tile tile-sm" data-reveal>
+        <img class="tile-visual" src="/images/rak-ik2d.gif" alt="2D inverse kinematics demo" style="object-position: 25% center;" />
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Oct 2025 – Jun 2026</span>
+          </div>
+          <h3><a href="https://github.com/SurabhiGupta17/Robot-Arm-Kinematics" target="_blank" rel="noopener noreferrer">Robot-Arm-Kinematics</a></h3>
+          <p class="tile-desc">
+            From-scratch analytical inverse and forward kinematics for a 2D 3-link planar arm and a
+            3D 6-DOF (UR5-type) arm, including reachability checks.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-row">
+      <div class="tile tile-solo" data-reveal>
+        <img class="tile-visual" src="/images/raven-featured.png" alt="RAVEN robot" />
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Jun 1 – Jun 30, 2025</span>
+          </div>
+          <h3>RAVEN</h3>
+          <div class="tile-role">LocalHost Fellowship &middot; 28-day build</div>
+          <p class="tile-desc">
+            "Robotic Assistant for Versatile Everyday Needs": a robotic arm + mobile base, fully
+            teleoperated, open source. Differential-drive chassis, LiDAR + SLAM mapping, SO-101 arm
+            teleoperation, object detection, imitation-learning data collection. Demoed at the
+            fellowship's Demo Day.
+          </p>
+          <a class="tile-link" href="#raven-tweets">See the daily build thread ↓</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="raven-tweets" class="work-tweets">
+      <div class="work-tweets-title">RAVEN &middot; daily build log</div>
+      <TweetScroll handle={ravenHandle} tweets={ravenTweets} />
+    </div>
+
+    <div class="work-row">
+      <div class="tile tile-md" data-reveal>
+        <img class="tile-visual" src="/images/catmull-rom-full.png" alt="Catmull-Rom spline path plot" />
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Oct – Dec 2024</span>
+          </div>
+          <h3><a href="https://github.com/AtsushiSakai/PythonRobotics/pull/1085" target="_blank" rel="noopener noreferrer">PythonRobotics contribution</a></h3>
+          <p class="tile-desc">
+            Contributed a Catmull-Rom spline interpolation implementation and documentation to
+            PythonRobotics (25k+ stars); merged into main.
+          </p>
+        </div>
+      </div>
+      <div class="tile tile-md" data-reveal>
+        <div class="tile-visual" style="--tile-color:#a5b4fc"></div>
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Dec 2024</span>
+          </div>
+          <h3>Vector Robotics</h3>
+          <div class="tile-role">Robotics Software Intern</div>
+          <p class="tile-desc">
+            Built a complete URDF model and Gazebo simulation environment for a 6-DOF robotic arm.
+            Implemented teleoperation for both simulation and hardware. Evaluated MiDaS monocular
+            depth estimation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-row">
+      <div class="tile tile-lg" data-reveal>
+        <img class="tile-visual" src="/images/droidarm-yt-thumb.jpg" alt="droid_arm build video thumbnail" />
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Jun 16 – Jul 27, 2024</span>
+          </div>
+          <h3>droid_arm</h3>
+          <div class="tile-role">Buildspace Nights &amp; Weekends S5 &middot; 42-day build</div>
+          <p class="tile-desc">
+            A low-cost, 5-DOF, 3D-printed teleoperated robotic arm, documented daily for 42
+            consecutive days: kinematics and URDF, inverse kinematics, gripper design and assembly,
+            motor wiring, full joystick teleoperation across all 5 joints. Won the Nights &amp;
+            Weekends S5 grant.
+          </p>
+          <a class="tile-link" href="https://youtu.be/BUXs8nEePwI" target="_blank" rel="noopener noreferrer">Watch the build video ▶</a>
+          <a class="tile-link" href="#droid-arm-tweets" style="margin-top: 4px;">See the daily build thread ↓</a>
+        </div>
+      </div>
+      <div class="tile tile-sm" data-reveal>
+        <img class="tile-visual" src="/images/peppermint.png" alt="Peppermint Robotics SD20 robot" />
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Dec 2023 – Feb 2024</span>
+          </div>
+          <h3>Peppermint Robotics</h3>
+          <div class="tile-role">Robotics Software Intern</div>
+          <p class="tile-desc">
+            Developed firmware and ROS2 integration for an LED matrix display system deployed to a
+            production robot fleet. Analyzed ultrasonic sensor array performance for obstacle
+            detection.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="droid-arm-tweets" class="work-tweets">
+      <div class="work-tweets-title">droid_arm &middot; daily build log</div>
+      <TweetScroll handle={droidArmHandle} tweets={droidArmTweets} />
+    </div>
+
+    <div class="work-row">
+      <div class="tile tile-md" data-reveal>
+        <img class="tile-visual" src="/images/ddsim-forward.gif" alt="Differential drive simulation demo" style="height: 280px; object-position: center 30%;" />
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Sep – Oct 2024</span>
+          </div>
+          <h3><a href="https://github.com/SurabhiGupta17/DifferentialDriveSim" target="_blank" rel="noopener noreferrer">Differential Drive Sim</a></h3>
+          <p class="tile-desc">
+            From-scratch forward kinematics for a differential-drive robot, plus a proportional
+            position controller for linear and angular velocity, visualized in Pygame.
+          </p>
+        </div>
+      </div>
+      <div class="tile tile-md" data-reveal>
+        <img class="tile-visual" src="/images/splinevisualiser.gif" alt="SplineVisualiser demo" style="object-fit: contain; background: var(--card); padding: 12px;" />
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span class="tile-date">Dec 2023 – Feb 2025</span>
+          </div>
+          <h3><a href="https://github.com/SurabhiGupta17/SplineVisualiser" target="_blank" rel="noopener noreferrer">SplineVisualiser</a></h3>
+          <p class="tile-desc">
+            Catmull-Rom, Bezier, cubic-spline, and B-spline implementations with an interactive
+            visualizer.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Base>

@@ -1,0 +1,900 @@
+{
+  "1929623379130437663": {
+    "text": "day 1/28 of building a home assistant robot\n\n- set up a basic differential drive chassis in simulation\n- gonna implement slam and navigation on sim till I get access to hardware\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1929622633655816194/img/OECsVkQhugNu3AET.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1929622633655816194/vid/avc1/1316x720/UvTXmQg15F51xm9p.mp4?tag=14"
+      }
+    ]
+  },
+  "1929898535669133580": {
+    "text": "day 2/28 of building a home assistant robot  \n\n- set up the raspberry pi\n- established comms between the raspi and my device\n- plan is to run the heavy algorithms on my laptop and let the pi handle the lidar and motors \n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GshgMXkasAA6pll.jpg"
+      },
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GshgQ4paUAAFeS1.jpg"
+      }
+    ]
+  },
+  "1930273828674122102": {
+    "text": "day 3/28 of building a home assistant robot\n\n- lidar + driver configured and set up\n- visualisation of lidar data in rviz \n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1930273760726396932/img/yXNULHxrnkrp7qDP.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1930273760726396932/vid/avc1/720x1280/eDv8OLeUqo_DQpXC.mp4"
+      }
+    ]
+  },
+  "1930639961835151532": {
+    "text": "day 4/28 of building a home assistant robot\n\n- set up lidar mapping (using slam toolbox)\n- can’t wait to mount the lidar on the chassis and map the house\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1930639891328880640/img/6wYVyaxEbYxgg5ju.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1930639891328880640/vid/avc1/1280x720/fKxTtyi6Bny6ufge.mp4"
+      }
+    ]
+  },
+  "1931441890303635751": {
+    "text": "day 6/28 of building a home assistant robot \n\n- tried (and failed) to build a working moveit config for the urdf \n- but hardware parts are here!!! s/o to @_1nF0rmed_ for the recommendation\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/Gs3cKHya0AAkA1A.jpg"
+      }
+    ]
+  },
+  "1931000519793009022": {
+    "text": "day 5/28 of building a home assistant robot\n\n- till I wait for the hardware components to arrive, I am working on the simulation\n- started work with the so101 arm urdf\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1931000452096933888/img/yDgXNaEKuWBz3YDm.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1931000452096933888/vid/avc1/1278x720/zoi9qDOvra5mXMFB.mp4?tag=14"
+      }
+    ]
+  },
+  "1931791618153300327": {
+    "text": "day 7/28 of building a home assistant robot \n\n- finished assembly of the leader arm! @shourshot and @habril27 helped out when I got stuck :)\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1931791549178023936/img/pAsc5luN1ptlfWJy.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1931791549178023936/vid/avc1/924x720/7mndT8frxx-HPVHg.mp4"
+      }
+    ]
+  },
+  "1932184953095434326": {
+    "text": "day 8/28 of building a home assistant robot\n\n- completed assembly and wiring for both arms\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GtB_-CZaIAAwBcP.jpg"
+      }
+    ]
+  },
+  "1932823069443428390": {
+    "text": "day 10/28 of building a home assistant robot \n\n- mounted the camera on the follower arm\n- it’s been a slow day\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GtLEVQ_bMAU41Pb.jpg"
+      },
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GtLEVRJa8AAgw57.jpg"
+      }
+    ]
+  },
+  "1932583652820660471": {
+    "text": "day 9/28 of building a home assistant robot \n\n- calibrated the robot arms\n- teleoperation is functional!\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1932583559866564608/img/4pjDTtvhdPC_6_NS.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1932583559866564608/vid/avc1/1280x720/A7ZgoBA2Sxa53WfZ.mp4"
+      }
+    ]
+  },
+  "1933253997143728393": {
+    "text": "day 11/28 of building a home assistant robot \n\n- recalibrated the arms (properly this time)\n- tried out teleop for basic tasks to get familiar with the system\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1933253910019653632/img/3WKUAYlB5dp8VVbY.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1933253910019653632/vid/avc1/1180x720/Kttt1OhoRk_wXsVd.mp4"
+      },
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1933253910032261120/img/yw5CZ2NCc9HLvjEO.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1933253910032261120/vid/avc1/1280x720/FVhWpnTq1GCiu2kr.mp4"
+      }
+    ]
+  },
+  "1933637903470768515": {
+    "text": "day 12/28 of building a home assistant robot \n\n- read about how to train the robot arm\n- brainstormed cool task ideas with @k7agar \n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": []
+  },
+  "1934299804567581021": {
+    "text": "day 14/28 of building a home assistant robot \n\n- robot chassis parts are here!\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GtgDaLvbIAAQy0Y.jpg"
+      }
+    ]
+  },
+  "1933949280798261255": {
+    "text": "day 13/28 of building a home assistant robot\n\n- sidequesting at the hackathon today\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": []
+  },
+  "1935052619325878437": {
+    "text": "day 16/28 of building a home assistant robot\n\n- setup aruco marker detection today for the coke bottles today\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1935052556851625988/img/q_DVuxFqbueiGwKe.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1935052556851625988/vid/avc1/720x1280/yLoGwZNiGW3Vc30T.mp4"
+      }
+    ]
+  },
+  "1934736010895872078": {
+    "text": "day 15/28 of building a home assistant robot \n\n- trying to make the robot fetch me a coke\n-played around with object detection today\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1934735945573781504/img/EPcRPYR23GFIQCll.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1934735945573781504/vid/avc1/720x1280/1o1an0TFMyWr_m2S.mp4"
+      }
+    ]
+  },
+  "1935417798538445142": {
+    "text": "day 17/28 of building a home assistant robot\n\n- tried implementing inverse kinematics\n- still figuring out the tech stack for picking and placing\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1935417734537658368/img/f6PHYhEfwSGQ7a4s.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1935417734537658368/vid/avc1/1280x720/JRtAuh-mdK8gYYlY.mp4"
+      }
+    ]
+  },
+  "1936467875046564027": {
+    "text": "day 20/28 of building a home assistant robot\n\n- I’m running into issues with battery management with the current chassis\n-  brainstormed about this and finalised a new chassis design\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": []
+  },
+  "1935796545712239018": {
+    "text": "day 18/28 of building a home assistant robot\n\n- decided to go the imitation learning route\n- collected training data via teleop\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1935796448706068480/img/3ktDP8-Ib0BhpwLh.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1935796448706068480/vid/avc1/1280x720/dyIvTOhTSHjlYppZ.mp4"
+      }
+    ]
+  },
+  "1936902067425345652": {
+    "text": "day 21/28 of building a home assistant robot \n \n- tried to setup websockets for communicating joint angles between raspi and my laptop\n- will hopefully test it on the hardware tomorrow \n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": []
+  },
+  "1936211571384213596": {
+    "text": "day 19/28 of building a home assistant robot\n\n- got a new case for my raspi today \n- tried to split the teleop script such that the follower arm runs on the pi while the leader arm is plugged into my laptop\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/Gt7OJzsXMAAcToP.jpg"
+      }
+    ]
+  },
+  "1937270696016548008": {
+    "text": "day 22/28 of building a home assistant robot\n\n- the chassis is slowly coming together \n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1937270603192631296/img/K3sbSeSxOr-ewnBc.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1937270603192631296/vid/avc1/1280x720/kuz1gLGJQA9wHunA.mp4"
+      }
+    ]
+  },
+  "1937606928609562981": {
+    "text": "day 23/28 of building a home assistant robot\n\n- finished basic assembly of the entire robot\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GuPDOfWasAE0c8h.jpg"
+      }
+    ]
+  },
+  "1938042449567617530": {
+    "text": "day 24/28 of building a home assistant robot\n\n- it moves!\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1938042388112674816/img/HTODhat4SlI4bBw2.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1938042388112674816/vid/avc1/720x1280/JWu_8Fxih8ayQ8K4.mp4"
+      }
+    ]
+  },
+  "1938730395677401464": {
+    "text": "day 26/28 of building a home assistant robot \n\n- did some basic testing on the robot to get it ready for demo day\n- tomorrow’s demo day!!!\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/amplify_video_thumb/1938730287753764865/img/Cp7PZINPGSIRujoB.jpg",
+        "videoSrc": "https://video.twimg.com/amplify_video/1938730287753764865/vid/avc1/754x720/TtKZxLoFkmNgzwPz.mp4"
+      }
+    ]
+  },
+  "1939492358934167606": {
+    "text": "day 28/28 of building a home assistant robot\n\n- that's a wrap for version 0 of RAVEN!\n- if you want to contribute to, or are just curious about the project, check out : https://t.co/HHi2hgCo9H\n- website design by @layogtima \n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": []
+  },
+  "1939112979464610238": {
+    "text": "day 27/28 of building a home assistant robot \n\n- showed my progress at the demo day at the @localhostIND fellowship!\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/Gukc-UhX0AAhcOV.jpg"
+      }
+    ]
+  },
+  "1938350383530971563": {
+    "text": "day 25/28 of building a home assistant robot \n\n- worked on the website for this project with @layogtima today\n- so excited for what’s coming!\n\ncc : @localhostIND @suhasasumukh @KechoHayashi",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GuZnZMzbEAQ6tYh.jpg"
+      }
+    ]
+  },
+  "1802769363038261574": {
+    "text": "day 2/42 of @_nightsweekends s5\n\n- managed to build a basic urdf of a 2 dof robotic arm (3 links + 2 joints)\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1802769126424997888/pu/img/uB1SlnbJ-Tc9zuwf.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1802769126424997888/pu/vid/avc1/1124x720/PyuFExWINkFdO21g.mp4?tag=12"
+      }
+    ]
+  },
+  "1803191270745264540": {
+    "text": "day 3/42 of @_nightsweekends s5\n\n- got a rudimentary urdf working with all 5 joints\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1803191145582960640/pu/img/3gmKhV0T0HjPCiZo.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1803191145582960640/pu/vid/avc1/1280x720/SIU8CqiKDsRUklyD.mp4?tag=12"
+      }
+    ]
+  },
+  "1803510055721181288": {
+    "text": "day 4/42 of @_nightsweekends s5\n\n- added a gripper for pick and place\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1803509954588057603/pu/img/D5erc5pLv82Oe8HI.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1803509954588057603/pu/vid/avc1/1280x720/Pfs6oQvf0b6LRwKI.mp4?tag=12"
+      }
+    ]
+  },
+  "1804262484553126271": {
+    "text": "day 6/42 of @_nightsweekends s5\n\n- learning inverse kinematics for 2 dof today \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GQoHKcrb0AEaidZ.jpg"
+      }
+    ]
+  },
+  "1803899380136644908": {
+    "text": "day 5/42 of @_nightsweekends \n\n- finalized the stl files and ordered 3d printed parts based on this design\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1803899152843362304/pu/img/bscuhsllrbj9o5EU.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1803899152843362304/pu/vid/avc1/1428x720/jxlwAOimig_1HWj8.mp4?tag=12"
+      }
+    ]
+  },
+  "1804942003387687195": {
+    "text": "day 8/42 of @_nightsweekends s5\n\n- after hours of trial and error, managed to get stl files to render in rviz\n- started integrating stl files with urdf\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1804941715457167360/pu/img/2K_mcDikmzoWqn_b.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1804941715457167360/pu/vid/avc1/1280x720/fFLezXlwoSXfdo30.mp4?tag=12"
+      }
+    ]
+  },
+  "1804611647388196920": {
+    "text": "day 7/42 of @_nightsweekends s5\n\n- onto 3 dof inverse kinematics\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GQtEuW9awAAxby_.jpg"
+      }
+    ]
+  },
+  "1805333558174826736": {
+    "text": "day 9/42 of @_nightsweekends s5\n\n- added the remaining joints and links (only the gripper remains)\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1805333378805415937/pu/img/Bxp_sE4QpZufxVD-.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1805333378805415937/pu/vid/avc1/1280x720/q-DAH81y_0TU5KZK.mp4?tag=12"
+      }
+    ]
+  },
+  "1806407748374204459": {
+    "text": "day 12/42 of @_nightsweekends s5\n\n- tried to setup the moveit configuration for the robot\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1806407582325891072/pu/img/0vqW9kBgEch7J9Eu.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1806407582325891072/pu/vid/avc1/1280x720/Wj-6YjWAJ7OBl613.mp4?tag=12"
+      }
+    ]
+  },
+  "1806011119427055620": {
+    "text": "day 11/42 of @_nightsweekends s5\n\n- finished the gripper!\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1806010975788871680/pu/img/w7tovf97ZRbRTFvF.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1806010975788871680/pu/vid/avc1/1280x720/8MeEALzjfkpZlDAz.mp4?tag=12"
+      }
+    ]
+  },
+  "1807145933496615007": {
+    "text": "day 14/42 of @_nightsweekends s5\n\n- got the 3d print of the gripper and bought corresponding nuts and bolts (starting hardware build!)\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GRRFpMXbUAAWZxT.jpg"
+      }
+    ]
+  },
+  "1806774676703920187": {
+    "text": "day 13/42 of @_nightsweekends  s5\n\n- day full of unsuccessful attempts at getting the robot model to load in rviz with the moveit_config package\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GRLzd5ebIAAAqhh.jpg"
+      }
+    ]
+  },
+  "1807853945232216222": {
+    "text": "day 16/42 of @_nightsweekends s5\n\n- motor selection \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GRbJjz6bsAA5E8k.jpg"
+      },
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1807853917537292290/pu/img/VC_qYOS-My9OjHI3.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1807853917537292290/pu/vid/avc1/720x1280/5aiqCE_gM-04DHgJ.mp4?tag=12"
+      }
+    ]
+  },
+  "1807533592157032813": {
+    "text": "day 15/42 of @_nightsweekends s5\n\n- gripper assembly\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1807533299260387328/pu/img/Op5uBvG_keZPy30n.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1807533299260387328/pu/vid/avc1/1280x720/K2ys-nNOgNMrxT6Q.mp4?tag=12"
+      }
+    ]
+  },
+  "1808547807483343258": {
+    "text": "day 18/42 of @_nightsweekends s5\n\n- joint 1 is a work in progress \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1808547704152469504/pu/img/9SugD6Xg4LZEThql.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1808547704152469504/pu/vid/avc1/1280x720/ywWYiuT2_3sY91Bb.mp4?tag=12"
+      }
+    ]
+  },
+  "1808255025334083779": {
+    "text": "day 17/42 of @_nightsweekends s5\n\n- arduino nano + servos = motors go brrrr\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1808254980069249028/pu/img/7dW09pslc0_9YmHa.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1808254980069249028/pu/vid/avc1/720x1280/WEwXSNee4cuEjFBG.mp4?tag=12"
+      },
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1808254980111192067/pu/img/_uTBA3wLd3crqWgH.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1808254980111192067/pu/vid/avc1/720x1280/i17jpXCY50DAIrM_.mp4?tag=12"
+      }
+    ]
+  },
+  "1809340078444994742": {
+    "text": "day 20/42 of @_nightsweekends s5\n\n- added an external battery source to get the servo running \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1809340034803523585/pu/img/En4O4BgH9kdoBwbg.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1809340034803523585/pu/vid/avc1/1280x720/_ZO0KkvLcuLOyvzR.mp4?tag=12"
+      }
+    ]
+  },
+  "1808959527460745339": {
+    "text": "day 19/42 of @_nightsweekends s5\n\n- got the motor fitted properly but the servo stopped working…needs further debugging to find what went wrong \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1808959497463083009/pu/img/utpzidi3j4yyx-FS.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1808959497463083009/pu/vid/avc1/1280x720/8nDvG_Te_UxNWkF2.mp4?tag=12"
+      }
+    ]
+  },
+  "1810051574577951166": {
+    "text": "day 22/42 of @_nightsweekends s5\n\n- got a 5d joystick module to control all five joints\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GR6YTQea4AAyTRN.jpg"
+      }
+    ]
+  },
+  "1809614925578531316": {
+    "text": "day 21/42 of @_nightsweekends s5\n\n- joint 1 is functional!\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1809614517212704773/pu/img/bMLmjJ0ipIpnsMVp.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1809614517212704773/pu/vid/avc1/1280x720/nNKbhCCfGAq_wPBA.mp4?tag=12"
+      }
+    ]
+  },
+  "1810411703978623087": {
+    "text": "day 23/42 of @_nightsweekends s5\n\n- joint 2 in progress\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GR_f1mZaEAAn231.jpg"
+      }
+    ]
+  },
+  "1811123502109327792": {
+    "text": "day 25/42 of @_nightsweekends s5\n\n- working on the third joint \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GSJnN9TaUAEGGNz.jpg"
+      }
+    ]
+  },
+  "1811792187316641979": {
+    "text": "day 27/42 of @_nightsweekends s5\n\n- working on the next joint\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GSTHYqmagAEaWAb.jpg"
+      }
+    ]
+  },
+  "1812237112957095966": {
+    "text": "day 28/42 of @_nightsweekends s5\n\n- got the joystick module running\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1812237071802662913/pu/img/GzEMRIb8hSfm6eIb.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1812237071802662913/pu/vid/avc1/1280x720/SI2XAsaChjpXunbh.mp4?tag=12"
+      }
+    ]
+  },
+  "1811479692970500419": {
+    "text": "day 26/42 of @_nightsweekends s5\n\n- joint 3 is functional \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GSOrJV6agAU4GNY.jpg"
+      },
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1811479652147560450/pu/img/l0SFUjeDmZoMsiMQ.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1811479652147560450/pu/vid/avc1/720x1280/TDKw4Q4hIrVQ538P.mp4?tag=12"
+      }
+    ]
+  },
+  "1812619812604109094": {
+    "text": "day 29/42 of @_nightsweekends s5\n\n- added the gripper base\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GSe4F9OX0AAY8XR.jpg"
+      },
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1812619787542970368/pu/img/x0lmGM3pNgc322bv.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1812619787542970368/pu/vid/avc1/720x1280/9zck58lqZFV8KbtQ.mp4?tag=12"
+      }
+    ]
+  },
+  "1812920118730760671": {
+    "text": "day 30/42 of @_nightsweekends s5\n\n- added the last servo \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GSjJPB-bUAA_Qb4.jpg"
+      }
+    ]
+  },
+  "1802376968580616576": {
+    "text": "day 1/42 of @_nightsweekends s5\n\n- spent the day learning about robot kinematic diagrams and drawing denavit-hartenberg frames \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GQNUS6TbMAAL6Mx.jpg"
+      }
+    ]
+  },
+  "1814436104474710415": {
+    "text": "day 34/42 of @_nightsweekends s5\n\n- mapped another joint to joystick \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1814436077543030784/pu/img/mPGjbGSo45WszeIp.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1814436077543030784/pu/vid/avc1/1280x720/e6Ieai4LQDV8Vwfk.mp4?tag=12"
+      }
+    ]
+  },
+  "1813340165458612276": {
+    "text": "day 31/42 of @_nightsweekends s5\n\n- finished assembly. gripper joint is functional \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GSpHQTBacAALCG7.jpg"
+      },
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1813340145288114176/pu/img/sth5dYHMYCEyTFeR.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1813340145288114176/pu/vid/avc1/720x1280/SGrNPLCz1b1I9qdd.mp4?tag=12"
+      }
+    ]
+  },
+  "1814020711897260361": {
+    "text": "day 33/42 of @_nightsweekends s5\n\n- gripper base joint is now joystick operated\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1814020691878100992/pu/img/v5W-NdJJvuVZu0yr.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1814020691878100992/pu/vid/avc1/1280x720/6JvD9gS_a1SdEl0z.mp4?tag=12"
+      }
+    ]
+  },
+  "1815136921661657340": {
+    "text": "day 36/42 of @_nightsweekends s5\n\n- completed the circuit today\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GTCpZydbIAA1ExU.jpg"
+      },
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GTCpZyeaAAEGql-.jpg"
+      }
+    ]
+  },
+  "1814726399506456678": {
+    "text": "day 35/42 of @_nightsweekends s5\n\n- all joints are now joystick controlled\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1814726348835074049/pu/img/xSfiTx6ivPJbkBSr.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1814726348835074049/pu/vid/avc1/1280x720/QUB0lVFeYaLMRvIa.mp4?tag=12"
+      }
+    ]
+  },
+  "1815861887424421937": {
+    "text": "day 38/42 of @_nightsweekends s5\n\n- droid_arm says hi :)\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GTM8vW8aYAQxiCZ.jpg"
+      },
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1815861859058360320/pu/img/_-6n1ac3x6Tk82bQ.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1815861859058360320/pu/vid/avc1/720x1278/Ow25pz2MhkWyNigw.mp4?tag=12"
+      }
+    ]
+  },
+  "1815469715088666633": {
+    "text": "day 37/42 of @_nightsweekends s5\n\n- finished building the base today \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1815469665361317888/pu/img/dgz7ThXhdBBTzfQp.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1815469665361317888/pu/vid/avc1/1280x720/XwCF00H7L5eSGhfo.mp4?tag=12"
+      }
+    ]
+  },
+  "1816621849205518359": {
+    "text": "day 40/42 of @_nightsweekends s5\n\n- testing : droid_arm places the napkin \n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1816621818058625024/pu/img/-KDhoNSPOE4NMKKp.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1816621818058625024/pu/vid/avc1/1280x720/RkdmvIC9Z1NGj7yk.mp4?tag=12"
+      }
+    ]
+  },
+  "1813658620674076709": {
+    "text": "day 32/42 of @_nightsweekends s5\n\n- started mapping joystick inputs to robot\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GSto5kQbwAEg0XK.jpg"
+      }
+    ]
+  },
+  "1816232965833384037": {
+    "text": "day 39/42 of @_nightsweekends s5\n\n- testing : droid_arm grabbed a napkin (this was harder than it looks)\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1816232762657103875/pu/img/K81YP887Kj5Q_J0j.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1816232762657103875/pu/vid/avc1/1278x720/zvf8Bs0-xAs1rGp9.mp4?tag=12"
+      }
+    ]
+  },
+  "1817251996598235237": {
+    "text": "day 42/42 of @_nightsweekends s5\n\n- the demo video. it's been a ride.\n\ncc : @_buildspace https://t.co/M61X6HcXc6",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": []
+  },
+  "1816911666023661619": {
+    "text": "day 41/42 of @_nightsweekends s5\n\n- editing the demo video today\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GTb3ftzaQAAJWZ4.jpg"
+      }
+    ]
+  },
+  "1805676887878123885": {
+    "text": "day 10/42 of @_nightsweekends s5\n\n- added the base of the gripper and got the gears to work\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1805676583178719232/pu/img/HFuxyf-DL6QII8Dq.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1805676583178719232/pu/vid/avc1/1280x720/QriUHSUQXdQkqTom.mp4?tag=12"
+      }
+    ]
+  },
+  "1810777629802520755": {
+    "text": "day 24/42 of @_nightsweekends s5\n\n- added another joint\n\ncc : @_buildspace",
+    "name": "Surabhi Gupta",
+    "screen_name": "this_is_surabhi",
+    "avatar": "https://pbs.twimg.com/profile_images/1820097904888946688/oOGDzzen_normal.jpg",
+    "media": [
+      {
+        "type": "photo",
+        "image": "https://pbs.twimg.com/media/GSEsoeRaUAQ2cps.jpg"
+      },
+      {
+        "type": "video",
+        "image": "https://pbs.twimg.com/ext_tw_video_thumb/1810777599024705536/pu/img/Ux8ObnNedf3DpTGG.jpg",
+        "videoSrc": "https://video.twimg.com/ext_tw_video/1810777599024705536/pu/vid/avc1/720x1280/DG7HMoAk6ueXnkGy.mp4?tag=12"
+      }
+    ]
+  }
+}
