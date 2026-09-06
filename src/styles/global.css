@@ -199,8 +199,8 @@ main {
   background: none;
 }
 
-.home-preview-tile:hover {
-  border-color: var(--accent);
+.home-preview-tile:hover .home-preview-tile-title {
+  font-weight: 700;
 }
 
 .home-preview-tile-title {
