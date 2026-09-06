@@ -329,6 +329,26 @@ footer.site-footer {
   margin: 52px 0 16px;
 }
 
+.comments-toggle {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.comments-toggle:hover {
+  border-color: var(--accent);
+}
+
+#giscus-container {
+  margin-top: 20px;
+}
+
 .writeup-article section:first-child h2 {
   margin-top: 0;
 }
